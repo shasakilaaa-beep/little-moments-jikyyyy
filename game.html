@@ -4,843 +4,1679 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>game zone — iky ♡ jihan</title>
+<title>games kita ♡ iky & jihan</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
 
 body{
- margin:0;
- font-family:Arial,sans-serif;
- background:linear-gradient(135deg,#fff5fa,#ffdbea,#fff);
- color:#342530;
- text-align:center;
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:#392533;
+
+  background:
+    radial-gradient(circle at 10% 0%,#fff 0 15%,transparent 35%),
+    radial-gradient(circle at 90% 20%,#ffd6e8 0 10%,transparent 30%),
+    linear-gradient(135deg,#fff3f8,#ffdce9,#fff);
+
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-nav{
- position:sticky;
- top:10px;
- z-index:10;
- margin:10px auto;
- width:95%;
- padding:10px;
- background:#ffffffee;
- border-radius:30px;
- box-shadow:0 10px 30px #ff4d9a22;
- overflow:auto;
- white-space:nowrap;
+a{
+  text-decoration:none;
+  color:inherit;
 }
 
-nav a{
- display:inline-block;
- text-decoration:none;
- color:#e83d83;
- font-weight:bold;
- padding:9px 12px;
- border-radius:20px;
+
+/* NAV */
+
+.nav{
+  position:fixed;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+
+  width:min(95%,900px);
+
+  padding:10px;
+
+  background:#ffffffdd;
+  backdrop-filter:blur(18px);
+
+  border:1px solid white;
+  border-radius:999px;
+
+  box-shadow:0 15px 40px #b52d6818;
+
+  display:flex;
+  justify-content:center;
+  gap:5px;
+
+  overflow-x:auto;
+  white-space:nowrap;
 }
 
-nav a:hover{
- background:#ffe1ed;
+.nav a{
+  padding:9px 13px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
 }
+
+.nav a:hover{
+  background:#ffe0ec;
+  color:#ed438d;
+}
+
+
+/* MAIN */
 
 .container{
- width:92%;
- max-width:900px;
- margin:auto;
- padding:30px 0 70px;
+  width:min(1000px,92%);
+  margin:auto;
+  padding:110px 0 70px;
+}
+
+.hero{
+  text-align:center;
+  padding:45px 10px;
+}
+
+.badge{
+  display:inline-block;
+
+  padding:9px 15px;
+
+  background:#ffe0ed;
+
+  color:#e63e86;
+
+  border-radius:999px;
+
+  font-weight:900;
+  font-size:13px;
 }
 
 h1{
- font-size:55px;
- margin:30px 0 10px;
+  font-size:clamp(48px,10vw,90px);
+  line-height:.9;
+
+  letter-spacing:-5px;
+
+  margin:20px 0 15px;
 }
 
 h1 span{
- color:#ef4f98;
+  color:#ef4f98;
 }
 
-.subtitle{
- color:#795d6d;
- font-size:17px;
- line-height:1.6;
+.hero p{
+  color:#765d6c;
+  line-height:1.7;
+  max-width:650px;
+  margin:auto;
 }
+
+
+/* GAME MENU */
 
 .games{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:18px;
- margin-top:35px;
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:18px;
+
+  margin-top:30px;
 }
 
-.card{
- background:#fff;
- border:2px solid #ffd3e5;
- border-radius:28px;
- padding:25px;
- box-shadow:0 15px 40px #e83d8318;
- transition:.25s;
+.game-card{
+
+  background:#ffffffdd;
+
+  border:2px solid #ffd3e4;
+
+  border-radius:30px;
+
+  padding:25px;
+
+  box-shadow:
+    0 18px 45px #a72d6415;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+  position:relative;
+
+  overflow:hidden;
 }
 
-.card:hover{
- transform:translateY(-6px) rotate(-1deg);
+.game-card:hover{
+
+  transform:
+    translateY(-7px)
+    rotate(-1deg);
+
+  box-shadow:
+    0 25px 55px #ff4d9a30;
 }
 
-.emoji{
- font-size:55px;
+.game-card::after{
+
+  content:"💗";
+
+  position:absolute;
+
+  right:18px;
+  top:14px;
+
+  font-size:25px;
+
+  opacity:.5;
 }
 
-.card h2{
- color:#e83d83;
+.game-icon{
+  font-size:45px;
 }
 
-.card p{
- color:#765b6c;
- line-height:1.6;
+.game-card h2{
+  margin:10px 0 5px;
 }
 
-button{
- border:0;
- background:#ef4f98;
- color:white;
- padding:13px 20px;
- border-radius:30px;
- font-weight:bold;
- cursor:pointer;
+.game-card p{
+  color:#806a76;
+  line-height:1.5;
+  margin:0;
 }
 
-button:hover{
- transform:scale(1.05);
+
+/* GAME SCREEN */
+
+.game-screen{
+
+  display:none;
+
+  margin-top:25px;
+
+  background:#ffffffed;
+
+  border:2px solid #ffd3e5;
+
+  border-radius:35px;
+
+  padding:30px;
+
+  box-shadow:0 20px 55px #a72d6418;
+
+  text-align:center;
 }
 
-.game{
- display:none;
- margin-top:30px;
- background:#fff;
- border:2px solid #ffd3e5;
- border-radius:30px;
- padding:30px;
- box-shadow:0 15px 40px #e83d8318;
-}
-
-.game.active{
- display:block;
+.game-screen.active{
+  display:block;
 }
 
 .back{
- background:#fff0f6;
- color:#e83d83;
- margin-bottom:20px;
+
+  display:inline-block;
+
+  padding:10px 15px;
+
+  background:#ffe3ee;
+
+  color:#df3b82;
+
+  border-radius:999px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  margin-bottom:20px;
 }
 
-#heartArea{
- position:relative;
- height:400px;
- overflow:hidden;
- background:#fff5fa;
- border-radius:25px;
- margin-top:20px;
+.question{
+
+  font-size:25px;
+
+  font-weight:950;
+
+  margin:20px auto;
+
+  max-width:650px;
 }
 
-.fallingHeart{
- position:absolute;
- cursor:pointer;
- font-size:35px;
- animation:fall 3s linear forwards;
+.answers{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:12px;
+
+  max-width:650px;
+
+  margin:auto;
 }
 
-@keyframes fall{
- from{top:-50px}
- to{top:430px}
+.answer{
+
+  border:2px solid #ffd4e5;
+
+  background:#fff;
+
+  border-radius:20px;
+
+  padding:15px;
+
+  font-weight:900;
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.answer:hover{
+
+  background:#ffe3ef;
+
+  transform:translateY(-3px);
+}
+
+.result{
+
+  margin-top:20px;
+
+  padding:20px;
+
+  border-radius:25px;
+
+  background:#fff0f7;
+
+  color:#d83c7e;
+
+  font-weight:900;
+
+  line-height:1.7;
+}
+
+
+/* CATCH HEART */
+
+.heart-game{
+
+  height:350px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:#fff5f9;
+
+  border-radius:25px;
+
+  border:2px dashed #ffb9d3;
+
+}
+
+.catch-heart{
+
+  position:absolute;
+
+  font-size:40px;
+
+  cursor:pointer;
+
+  user-select:none;
+
+  animation:heartbeat 1s infinite;
+}
+
+@keyframes heartbeat{
+
+  50%{
+    transform:scale(1.25);
+  }
+
+}
+
+
+/* BOXES */
+
+.boxes{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:15px;
+
+  flex-wrap:wrap;
+
+  margin-top:25px;
+}
+
+.box{
+
+  width:100px;
+  height:100px;
+
+  border-radius:25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff4d98,
+      #ff9fc3
+    );
+
+  display:grid;
+
+  place-items:center;
+
+  font-size:40px;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+  box-shadow:0 10px 25px #ff4d9a30;
+}
+
+.box:hover{
+  transform:
+    translateY(-7px)
+    rotate(4deg);
+}
+
+
+/* LOVE METER */
+
+.meter{
+
+  width:100%;
+  max-width:600px;
+
+  height:35px;
+
+  background:#ffe2ed;
+
+  border-radius:999px;
+
+  overflow:hidden;
+
+  margin:25px auto;
+}
+
+.meter-fill{
+
+  width:0%;
+
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff4d98,
+      #ff9fc3
+    );
+
+  transition:.2s;
+}
+
+.love-button{
+
+  border:0;
+
+  background:#ff4d98;
+
+  color:#fff;
+
+  border-radius:999px;
+
+  padding:16px 25px;
+
+  font-size:16px;
+
+  font-weight:1000;
+
+  cursor:pointer;
+
+  box-shadow:0 12px 30px #ff4d9a44;
+}
+
+.love-button:hover{
+  transform:scale(1.05);
+}
+
+
+/* MEMORY */
+
+.memory-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:10px;
+
+  max-width:500px;
+
+  margin:25px auto;
 }
 
 .memory{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:10px;
- max-width:500px;
- margin:20px auto;
+
+  aspect-ratio:1;
+
+  border:0;
+
+  border-radius:18px;
+
+  background:#ff75aa;
+
+  color:white;
+
+  font-size:30px;
+
+  cursor:pointer;
+
+  font-weight:900;
 }
 
-.memory button{
- height:80px;
- font-size:30px;
- background:#ff9fc4;
+
+/* FLOATING HEART */
+
+.floating-heart{
+
+  position:fixed;
+
+  bottom:-30px;
+
+  pointer-events:none;
+
+  z-index:2;
+
+  animation:floatUp linear forwards;
 }
 
-.quiz button{
- display:block;
- width:100%;
- max-width:500px;
- margin:10px auto;
+@keyframes floatUp{
+
+  to{
+
+    transform:
+      translateY(-110vh)
+      rotate(30deg);
+
+    opacity:0;
+  }
 }
 
-.message{
- margin:20px auto;
- padding:20px;
- background:#fff0f6;
- border-radius:20px;
- color:#d93678;
- font-weight:bold;
- line-height:1.7;
-}
 
-.secret{
- font-size:40px;
-}
+/* MOBILE */
 
 @media(max-width:650px){
- .games{
-  grid-template-columns:1fr;
- }
- h1{
-  font-size:42px;
- }
+
+  .games{
+    grid-template-columns:1fr;
+  }
+
+  .answers{
+    grid-template-columns:1fr;
+  }
+
+  .game-screen{
+    padding:20px 15px;
+  }
+
+  h1{
+    letter-spacing:-3px;
+  }
+
+  .memory-grid{
+    grid-template-columns:
+      repeat(4,1fr);
+  }
+
+  .box{
+    width:80px;
+    height:80px;
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<nav>
-<a href="index.html">home</a>
-<a href="cerita.html">cerita</a>
-<a href="galeri.html">foto</a>
-<a href="timeline.html">timeline</a>
-<a href="game.html">🎮 game</a>
-<a href="reasons.html">alasan</a>
-<a href="surprise.html">surprise</a>
-<a href="surat.html">surat</a>
+
+<!-- NAV -->
+
+<nav class="nav">
+
+<a href="index.html">
+🏠 home
+</a>
+
+<a href="cerita.html">
+📖 cerita
+</a>
+
+<a href="galeri.html">
+📸 foto
+</a>
+
+<a href="timeline.html">
+🕰️ timeline
+</a>
+
+<a href="reasons.html">
+💗 alasan
+</a>
+
+<a href="game.html">
+🎮 game
+</a>
+
+<a href="surprise.html">
+🎁 surprise
+</a>
+
+<a href="surat.html">
+💌 surat
+</a>
+
 </nav>
 
-<div class="container">
+
+
+<main class="container">
+
+
+<section class="hero">
+
+<div class="badge">
+🎮 jikyyy love arcade 💗
+</div>
 
 <h1>
-iky × <span>jihan</span><br>
-🎮 game zone
+play<br>
+<span>with us</span>
 </h1>
 
-<p class="subtitle">
-selamat datang di tempat paling random<br>
-di website kita 😭💗<br><br>
-pilih game yang mau kamu mainkan
-</p>
-
-
-<!-- PILIHAN GAME -->
-
-<div id="menu" class="games">
-
-<div class="card">
-<div class="emoji">💗</div>
-<h2>Catch The Hearts</h2>
-<p>tangkap hati sebanyak mungkin sebelum waktunya habis</p>
-<button onclick="openGame('heartGame')">MAIN 💗</button>
-</div>
-
-<div class="card">
-<div class="emoji">🧠</div>
-<h2>Memory Card</h2>
-<p>cari pasangan emoji yang sama</p>
-<button onclick="openGame('memoryGame');startMemory()">MAIN 🧠</button>
-</div>
-
-<div class="card">
-<div class="emoji">❓</div>
-<h2>Love Quiz</h2>
-<p>seberapa kenal kamu sama cerita kita?</p>
-<button onclick="openGame('quizGame')">MAIN ❓</button>
-</div>
-
-<div class="card">
-<div class="emoji">🎰</div>
-<h2>Random Love</h2>
-<p>pencet tombol dan lihat pesan rahasia untuk kamu</p>
-<button onclick="openGame('randomGame')">MAIN 🎰</button>
-</div>
-
-<div class="card">
-<div class="emoji">💘</div>
-<h2>Love Meter</h2>
-<p>ukur tingkat kebucinan Iky × Jihan 😭</p>
-<button onclick="openGame('loveGame')">CEK 💘</button>
-</div>
-
-<div class="card">
-<div class="emoji">🔐</div>
-<h2>Secret Room</h2>
-<p>ruangan rahasia yang cuma boleh dibuka Jihan</p>
-<button onclick="openGame('secretGame')">BUKA 🔐</button>
-</div>
-
-</div>
-
-
-<!-- CATCH HEART -->
-
-<div id="heartGame" class="game">
-
-<button class="back" onclick="backMenu()">← kembali</button>
-
-<h2>💗 Catch The Hearts</h2>
-
 <p>
-tangkap hati yang jatuh!<br>
-kamu punya <b>20 detik</b>
+karena hubungan kita nggak cuma butuh
+cerita dan foto 😭  
+sekali-sekali kita main juga,
+walaupun game-nya receh banget 💗
 </p>
 
-<h2>
-score: <span id="score">0</span>
-</h2>
-
-<button onclick="startHearts()">▶️ mulai</button>
-
-<div id="heartArea"></div>
-
-<div id="heartResult" class="message"></div>
-
-</div>
+</section>
 
 
-<!-- MEMORY -->
 
-<div id="memoryGame" class="game">
+<!-- GAME MENU -->
 
-<button class="back" onclick="backMenu()">← kembali</button>
-
-<h2>🧠 Memory Card</h2>
-
-<p>
-cari semua pasangan yang sama 💗
-</p>
-
-<div id="memoryBoard" class="memory"></div>
-
-<div id="memoryResult" class="message"></div>
-
-</div>
+<div class="games">
 
 
-<!-- QUIZ -->
-
-<div id="quizGame" class="game quiz">
-
-<button class="back" onclick="backMenu()">← kembali</button>
-
-<h2>❓ Love Quiz</h2>
-
-<h3 id="question"></h3>
-
-<div id="answers"></div>
-
-<div id="quizResult" class="message"></div>
-
-</div>
-
-
-<!-- RANDOM LOVE -->
-
-<div id="randomGame" class="game">
-
-<button class="back" onclick="backMenu()">← kembali</button>
-
-<h2>🎰 Random Love</h2>
-
-<p>
-lagi kangen? pencet tombol ini 😭
-</p>
-
-<button onclick="randomLove()">
-💗 pencet aku
-</button>
-
-<div id="randomResult" class="message">
-pesan buat kamu akan muncul di sini 💌
-</div>
-
-</div>
-
-
-<!-- LOVE METER -->
-
-<div id="loveGame" class="game">
-
-<button class="back" onclick="backMenu()">← kembali</button>
-
-<h2>💘 Love Meter</h2>
-
-<p>
-menghitung tingkat kebucinan...
-</p>
-
-<button onclick="loveMeter()">
-💗 HITUNG
-</button>
-
-<div id="loveResult" class="message"></div>
-
-</div>
-
-
-<!-- SECRET -->
-
-<div id="secretGame" class="game">
-
-<button class="back" onclick="backMenu()">← kembali</button>
-
-<div class="secret">
-🔐💗
-</div>
-
-<h2>Secret Room</h2>
-
-<p>
-masukkan nama seseorang yang paling kamu sayang
-</p>
-
-<input
-id="password"
-placeholder="tulis di sini..."
-style="padding:14px;border-radius:20px;border:2px solid #ffd3e5;text-align:center"
+<div
+class="game-card"
+onclick="openGame('quiz')"
 >
 
-<br><br>
+<div class="game-icon">
+💗
+</div>
 
-<button onclick="secretRoom()">
-🔓 buka
+<h2>
+seberapa kenal jihan?
+</h2>
+
+<p>
+coba lihat apakah Iky benar-benar
+hafal tentang Jihan 😭
+</p>
+
+</div>
+
+
+
+<div
+class="game-card"
+onclick="openGame('heart')"
+>
+
+<div class="game-icon">
+❤️
+</div>
+
+<h2>
+tangkap hati
+</h2>
+
+<p>
+klik hati sebanyak mungkin
+sebelum waktunya habis
+</p>
+
+</div>
+
+
+
+<div
+class="game-card"
+onclick="openGame('box')"
+>
+
+<div class="game-icon">
+🎁
+</div>
+
+<h2>
+mystery boxes
+</h2>
+
+<p>
+ada kejutan rahasia di salah satu
+kotak 👀
+</p>
+
+</div>
+
+
+
+<div
+class="game-card"
+onclick="openGame('meter')"
+>
+
+<div class="game-icon">
+💖
+</div>
+
+<h2>
+love meter
+</h2>
+
+<p>
+buktikan seberapa besar rasa sayang
+Iky ke Jihan 😭
+</p>
+
+</div>
+
+
+
+<div
+class="game-card"
+onclick="openGame('memory')"
+>
+
+<div class="game-icon">
+🥰
+</div>
+
+<h2>
+memory couple
+</h2>
+
+<p>
+cari pasangan emoji yang sama
+</p>
+
+</div>
+
+
+
+<div
+class="game-card"
+onclick="openGame('love')"
+>
+
+<div class="game-icon">
+💌
+</div>
+
+<h2>
+pilih pesan cinta
+</h2>
+
+<p>
+pilih satu pesan yang paling
+menggambarkan kita
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =================================================
+     QUIZ
+================================================= -->
+
+<section
+id="quiz"
+class="game-screen"
+>
+
+<div
+class="back"
+onclick="closeGames()"
+>
+← kembali ke semua game
+</div>
+
+<h2>
+💗 seberapa kenal jihan?
+</h2>
+
+<div
+id="quizQuestion"
+class="question"
+>
+siap nggak? 😭
+</div>
+
+<div
+id="quizAnswers"
+class="answers"
+></div>
+
+<div
+id="quizResult"
+class="result"
+style="display:none"
+></div>
+
+</section>
+
+
+
+<!-- =================================================
+     HEART GAME
+================================================= -->
+
+<section
+id="heart"
+class="game-screen"
+>
+
+<div
+class="back"
+onclick="closeGames()"
+>
+← kembali
+</div>
+
+<h2>
+❤️ tangkap hati!
+</h2>
+
+<p>
+klik hati sebanyak mungkin dalam
+10 detik
+</p>
+
+<h3 id="score">
+score: 0
+</h3>
+
+<div
+id="heartArea"
+class="heart-game"
+></div>
+
+<div
+id="heartResult"
+class="result"
+>
+tekan tombol mulai 💗
+</div>
+
+<button
+class="love-button"
+onclick="startHeartGame()"
+>
+💗 MULAI
 </button>
 
-<div id="secretResult" class="message"></div>
+</section>
 
+
+
+<!-- =================================================
+     BOX GAME
+================================================= -->
+
+<section
+id="box"
+class="game-screen"
+>
+
+<div
+class="back"
+onclick="closeGames()"
+>
+← kembali
+</div>
+
+<h2>
+🎁 mystery boxes
+</h2>
+
+<p>
+salah satu kotak menyimpan pesan
+khusus buat Jihan 👀
+</p>
+
+<div class="boxes">
+
+<div
+class="box"
+onclick="openBox(this)"
+>
+🎁
+</div>
+
+<div
+class="box"
+onclick="openBox(this)"
+>
+🎁
+</div>
+
+<div
+class="box"
+onclick="openBox(this)"
+>
+🎁
+</div>
+
+<div
+class="box"
+onclick="openBox(this)"
+>
+🎁
 </div>
 
 </div>
+
+<div
+id="boxResult"
+class="result"
+>
+pilih salah satu 😭
+</div>
+
+</section>
+
+
+
+<!-- =================================================
+     LOVE METER
+================================================= -->
+
+<section
+id="meter"
+class="game-screen"
+>
+
+<div
+class="back"
+onclick="closeGames()"
+>
+← kembali
+</div>
+
+<h2>
+💖 love meter
+</h2>
+
+<p>
+pencet sampai rasa sayangnya
+100% 😭
+</p>
+
+<div class="meter">
+
+<div
+id="meterFill"
+class="meter-fill"
+></div>
+
+</div>
+
+<h2 id="meterText">
+0%
+</h2>
+
+<button
+class="love-button"
+onclick="increaseLove()"
+>
+💗 TAMBAH SAYANG
+</button>
+
+<div
+id="meterResult"
+class="result"
+>
+ayo pencet 😭
+</div>
+
+</section>
+
+
+
+<!-- =================================================
+     MEMORY GAME
+================================================= -->
+
+<section
+id="memory"
+class="game-screen"
+>
+
+<div
+class="back"
+onclick="closeGames()"
+>
+← kembali
+</div>
+
+<h2>
+🥰 memory couple
+</h2>
+
+<p>
+cari dua emoji yang sama
+</p>
+
+<div
+id="memoryGrid"
+class="memory-grid"
+></div>
+
+<div
+id="memoryResult"
+class="result"
+>
+temukan semua pasangan 💗
+</div>
+
+</section>
+
+
+
+<!-- =================================================
+     LOVE MESSAGE
+================================================= -->
+
+<section
+id="love"
+class="game-screen"
+>
+
+<div
+class="back"
+onclick="closeGames()"
+>
+← kembali
+</div>
+
+<h2>
+💌 pilih pesan cinta
+</h2>
+
+<p>
+pilih satu yang paling kamu rasakan
+</p>
+
+<div class="answers">
+
+<button
+class="answer"
+onclick="loveMessage(1)"
+>
+"aku tetap pilih kamu"
+</button>
+
+<button
+class="answer"
+onclick="loveMessage(2)"
+>
+"makasih sudah bertahan"
+</button>
+
+<button
+class="answer"
+onclick="loveMessage(3)"
+>
+"jangan pergi ya"
+</button>
+
+<button
+class="answer"
+onclick="loveMessage(4)"
+>
+"aku mau terus sama kamu"
+</button>
+
+</div>
+
+<div
+id="loveResult"
+class="result"
+>
+💗 pilih salah satu
+</div>
+
+</section>
+
+
+</main>
+
 
 
 <script>
 
-/* ================= MENU ================= */
+/* =====================================================
+   OPEN GAME
+===================================================== */
 
 function openGame(id){
 
- document.getElementById("menu").style.display="none";
+  document
+  .querySelectorAll(".game-screen")
+  .forEach(el=>{
+    el.classList.remove("active");
+  });
 
- document.querySelectorAll(".game")
- .forEach(x=>x.classList.remove("active"));
+  document
+  .getElementById(id)
+  .classList.add("active");
 
- document.getElementById(id)
- .classList.add("active");
+  document
+  .getElementById(id)
+  .scrollIntoView({
+    behavior:"smooth"
+  });
 
- window.scrollTo({
-  top:0,
-  behavior:"smooth"
- });
-
-}
-
-function backMenu(){
-
- document.querySelectorAll(".game")
- .forEach(x=>x.classList.remove("active"));
-
- document.getElementById("menu").style.display="grid";
+  if(id==="memory"){
+    createMemory();
+  }
 
 }
 
 
-/* ================= HEART GAME ================= */
+/* CLOSE */
 
-let score=0;
-let heartTimer;
+function closeGames(){
 
-function startHearts(){
+  document
+  .querySelectorAll(".game-screen")
+  .forEach(el=>{
+    el.classList.remove("active");
+  });
 
- score=0;
-
- document.getElementById("score").textContent=score;
-
- document.getElementById("heartResult").textContent="";
-
- const area=document.getElementById("heartArea");
-
- area.innerHTML="";
-
- clearInterval(heartTimer);
-
- heartTimer=setInterval(()=>{
-
-  const heart=document.createElement("div");
-
-  heart.className="fallingHeart";
-
-  heart.textContent=[
-   "💗","💖","💕","🩷"
-  ][Math.floor(Math.random()*4)];
-
-  heart.style.left=
-  Math.random()*90+"%";
-
-  heart.onclick=()=>{
-
-   score++;
-
-   document.getElementById("score")
-   .textContent=score;
-
-   heart.remove();
-
-  };
-
-  area.appendChild(heart);
-
-  setTimeout(()=>{
-   heart.remove();
-  },3000);
-
- },500);
-
- setTimeout(()=>{
-
-  clearInterval(heartTimer);
-
-  document.getElementById("heartResult")
-  .innerHTML=
-  "selesaiii 😭💗<br><br>"+
-  "score kamu: "+score+
-  "<br><br>"+
-  (score>=15
-   ?"GILAAA BUcin banget 😭💗"
-   :"masih kurang bucin nih 😭");
-
- },20000);
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
 
-/* ================= MEMORY ================= */
 
-function startMemory(){
-
- const emojis=[
-  "💗","💗",
-  "💖","💖",
-  "💕","💕",
-  "🩷","🩷",
-  "💘","💘",
-  "🌸","🌸",
-  "✨","✨",
-  "🥰","🥰"
- ];
-
- emojis.sort(()=>Math.random()-.5);
-
- const board=
- document.getElementById("memoryBoard");
-
- board.innerHTML="";
-
- let first=null;
- let lock=false;
- let matched=0;
-
- emojis.forEach((emoji,i)=>{
-
-  const card=document.createElement("button");
-
-  card.textContent="❓";
-
-  card.onclick=()=>{
-
-   if(lock || card.textContent!=="❓")
-   return;
-
-   card.textContent=emoji;
-
-   if(!first){
-
-    first={card,emoji};
-
-   }else{
-
-    if(first.emoji===emoji){
-
-     matched++;
-
-     first=null;
-
-     if(matched===8){
-
-      document.getElementById(
-       "memoryResult"
-      ).textContent=
-      "SEMUA COCOK 😭💗 kamu hebat";
-
-     }
-
-    }else{
-
-     lock=true;
-
-     setTimeout(()=>{
-
-      card.textContent="❓";
-
-      first.card.textContent="❓";
-
-      first=null;
-
-      lock=false;
-
-     },700);
-
-    }
-
-   }
-
-  };
-
-  board.appendChild(card);
-
- });
-
-}
-
-
-/* ================= QUIZ ================= */
+/* =====================================================
+   QUIZ
+===================================================== */
 
 const questions=[
 
 {
- q:"kita awalnya kenal di mana?",
- a:[
-  "Instagram",
-  "Telegram",
-  "TikTok",
-  "WhatsApp"
- ],
- correct:1
+q:"awalnya Iky dan Jihan kenal di mana?",
+a:[
+"Instagram",
+"Telegram",
+"TikTok",
+"sekolah"
+],
+correct:1
 },
 
 {
- q:"awalnya Jihan serius nggak sama Iky?",
- a:[
-  "serius banget",
-  "nggak serius 😭",
-  "langsung nikah",
-  "nggak kenal"
- ],
- correct:1
+q:"awalnya Jihan serius sama Iky?",
+a:[
+"langsung serius",
+"nggak terlalu 😭",
+"langsung nikah",
+"nggak pernah ngobrol"
+],
+correct:1
 },
 
 {
- q:"siapa yang akhirnya bertahan sampai sekarang?",
- a:[
-  "nggak ada",
-  "orang lain",
-  "Iky dan Jihan 💗",
-  "NPC"
- ],
- correct:2
+q:"kenapa website ini dibuat?",
+a:[
+"tugas sekolah",
+"jualan",
+"menyimpan kenangan kita",
+"buat lomba"
+],
+correct:2
+},
+
+{
+q:"siapa yang paling bucin?",
+a:[
+"Iky",
+"Jihan",
+"dua-duanya",
+"tergantung hari 😭"
+],
+correct:2
 }
 
 ];
 
-let qi=0;
-let qscore=0;
+let currentQuestion=0;
+let quizScore=0;
+
 
 function loadQuiz(){
 
- const q=questions[qi];
+  const q=
+    questions[currentQuestion];
 
- document.getElementById("question")
- .textContent=q.q;
+  document
+  .getElementById("quizQuestion")
+  .textContent=q.q;
 
- const box=
- document.getElementById("answers");
+  const box=
+    document.getElementById("quizAnswers");
 
- box.innerHTML="";
+  box.innerHTML="";
 
- q.a.forEach((answer,i)=>{
+  q.a.forEach(
+    (answer,index)=>{
 
-  const button=document.createElement("button");
+      const button=
+        document.createElement("button");
 
-  button.textContent=answer;
+      button.className="answer";
 
-  button.onclick=()=>{
+      button.textContent=answer;
 
-   if(i===q.correct){
+      button.onclick=()=>{
 
-    qscore++;
+        if(index===q.correct){
 
-    document.getElementById(
-     "quizResult"
-    ).textContent=
-    "BENARRR 😭💗";
+          quizScore++;
 
-   }else{
+          button.textContent=
+            "💗 BENERRR";
 
-    document.getElementById(
-     "quizResult"
-    ).textContent=
-    "SALAHHH 😭 coba lagi";
+        }else{
 
-   }
+          button.textContent=
+            "😭 SALAH";
 
-   qi++;
+        }
 
-   if(qi<questions.length){
+        setTimeout(
+          nextQuestion,
+          700
+        );
 
-    setTimeout(loadQuiz,800);
+      };
 
-   }else{
+      box.appendChild(button);
 
-    setTimeout(()=>{
+    }
+  );
 
-     document.getElementById(
-      "question"
-     ).textContent=
-     "quiz selesai 💗";
+}
 
-     document.getElementById(
-      "answers"
-     ).innerHTML="";
 
-     document.getElementById(
-      "quizResult"
-     ).innerHTML=
-     "score kamu: "+
-     qscore+
-     "/"+
-     questions.length+
-     "<br><br>"+
-     "makasih udah inget cerita kita 😭💗";
+function nextQuestion(){
 
-    },800);
+  currentQuestion++;
 
-   }
+  if(
+    currentQuestion>=
+    questions.length
+  ){
+
+    document
+    .getElementById("quizResult")
+    .style.display="block";
+
+    document
+    .getElementById("quizResult")
+    .innerHTML=
+      "hasil kamu: "+
+      quizScore+
+      "/"+
+      questions.length+
+      "<br><br>"+
+      (
+        quizScore===questions.length
+        ?
+        "😭💗 GILA JIHAN PASTI SENENG, Iky hafal banget"
+        :
+        "hehe masih harus belajar tentang Jihan lagi 😭💗"
+      );
+
+    currentQuestion=0;
+
+  }else{
+
+    loadQuiz();
+
+  }
+
+}
+
+loadQuiz();
+
+
+
+/* =====================================================
+   HEART GAME
+===================================================== */
+
+let score=0;
+let heartTimer;
+
+
+function startHeartGame(){
+
+  score=0;
+
+  document
+  .getElementById("score")
+  .textContent="score: 0";
+
+  const area=
+    document.getElementById("heartArea");
+
+  area.innerHTML="";
+
+  document
+  .getElementById("heartResult")
+  .textContent=
+    "AYOOO CEPET 😭💗";
+
+  let time=10;
+
+  heartTimer=setInterval(()=>{
+
+    time--;
+
+    if(time<=0){
+
+      clearInterval(heartTimer);
+
+      area.innerHTML="";
+
+      document
+      .getElementById("heartResult")
+      .textContent=
+        "waktu habis 😭 kamu berhasil menangkap "+
+        score+
+        " hati 💗";
+
+      return;
+
+    }
+
+    createCatchHeart();
+
+  },700);
+
+}
+
+
+function createCatchHeart(){
+
+  const area=
+    document.getElementById("heartArea");
+
+  const h=
+    document.createElement("div");
+
+  h.className=
+    "catch-heart";
+
+  h.textContent=
+    ["💗","💖","💕","🩷"]
+    [Math.floor(Math.random()*4)];
+
+  h.style.left=
+    Math.random()*85+"%";
+
+  h.style.top=
+    Math.random()*80+"%";
+
+  h.onclick=()=>{
+
+    score++;
+
+    document
+    .getElementById("score")
+    .textContent=
+      "score: "+score;
+
+    h.remove();
 
   };
 
-  box.appendChild(button);
-
- });
-
-}
-
-document
-.getElementById("quizGame")
-.addEventListener("click",()=>{
-
- if(qi===0)
- loadQuiz();
-
-});
-
-
-/* ================= RANDOM LOVE ================= */
-
-function randomLove(){
-
- const messages=[
-
- "kalau kamu lagi baca ini, berarti aku lagi kangen kamu 💗",
-
- "jangan lupa senyum hari ini, ada seseorang yang suka banget lihat kamu senyum 🥹",
-
- "dulu kita cuma kenal random di Telegram, sekarang malah punya website sendiri 😭",
-
- "aku nggak tahu hubungan kita bakal sampai mana, tapi aku mau terus berusaha selama kamu masih mau",
-
- "kalau suatu hari kamu capek, istirahat yaa, jangan merasa harus kuat sendirian 💗",
-
- "plot twist terbaik dalam hidupku adalah kenal sama kamu",
-
- "aku mungkin nggak sempurna, tapi perasaanku ke kamu nggak pernah aku anggap main-main",
-
- "makasih udah tetap ada sampai sekarang 🩷"
-
- ];
-
- const random=
- messages[
- Math.floor(Math.random()*messages.length)
- ];
-
- document.getElementById(
-  "randomResult"
- ).textContent=random;
+  area.appendChild(h);
 
 }
 
 
-/* ================= LOVE METER ================= */
 
-function loveMeter(){
+/* =====================================================
+   BOX
+===================================================== */
 
- const numbers=[
-  99.9,
-  100,
-  101,
-  999,
-  1000
- ];
+function openBox(box){
 
- const number=
- numbers[
- Math.floor(Math.random()*numbers.length)
- ];
+  const messages=[
 
- document.getElementById(
-  "loveResult"
- ).innerHTML=
- "TINGKAT BUCIN:<br><br>"+
- "<span style='font-size:45px'>"+
- number+
- "% 💗"+
- "</span><br><br>"+
- "kesimpulan:<br>"+
- "udah nggak bisa diselamatkan 😭";
+    "💗 ternyata kamu nemu pesan rahasia: Iky sayang Jihan",
+
+    "😭 hampir... tapi kotak ini isinya cuma kebucinan",
+
+    "💌 Jihan, makasih sudah tetap ada sampai sekarang",
+
+    "🥹 kalau bisa ulang dari awal, Iky tetap mau kenal kamu"
+
+  ];
+
+  const random=
+    Math.floor(
+      Math.random()*messages.length
+    );
+
+  document
+  .getElementById("boxResult")
+  .textContent=
+    messages[random];
+
+  box.textContent="💖";
+
+}
+
+
+
+/* =====================================================
+   LOVE METER
+===================================================== */
+
+let love=0;
+
+
+function increaseLove(){
+
+  love+=10;
+
+  if(love>100){
+    love=100;
+  }
+
+  document
+  .getElementById("meterFill")
+  .style.width=
+    love+"%";
+
+  document
+  .getElementById("meterText")
+  .textContent=
+    love+"%";
+
+  if(love===100){
+
+    document
+    .getElementById("meterResult")
+    .innerHTML=
+      "💗 100% penuh 😭<br><br>"+
+      "kalau meter-nya masih bisa lebih dari 100%, mungkin harus dibuat sampai 1000% 😭💗";
+
+  }
 
 }
 
 
-/* ================= SECRET ================= */
 
-function secretRoom(){
+/* =====================================================
+   MEMORY GAME
+===================================================== */
 
- const value=
- document.getElementById(
-  "password"
- ).value
- .toLowerCase()
- .trim();
+const memoryItems=[
+  "💗","💗",
+  "🩷","🩷",
+  "💕","💕",
+  "💖","💖",
+  "🥰","🥰",
+  "✨","✨"
+];
 
- if(
-  value==="jihan" ||
-  value==="iky" ||
-  value==="iky jihan"
- ){
+let firstCard=null;
+let secondCard=null;
+let lock=false;
+let matches=0;
 
-  document.getElementById(
-   "secretResult"
-  ).innerHTML=
-  "🔓 SECRET UNLOCKED 💗<br><br>"+
-  "ternyata passwordnya gampang... "+
-  "karena orang yang paling aku sayang "+
-  "memang cuma kamu 🥹🩷";
 
- }else{
+function createMemory(){
 
-  document.getElementById(
-   "secretResult"
-  ).textContent=
-  "salahhh 😭 coba pikir lagi";
+  const grid=
+    document
+    .getElementById("memoryGrid");
 
- }
+  grid.innerHTML="";
+
+  firstCard=null;
+  secondCard=null;
+  lock=false;
+  matches=0;
+
+  const shuffled=
+    [...memoryItems]
+    .sort(
+      ()=>Math.random()-.5
+    );
+
+  shuffled.forEach(item=>{
+
+    const button=
+      document.createElement("button");
+
+    button.className="memory";
+
+    button.textContent="❓";
+
+    button.dataset.value=item;
+
+    button.onclick=()=>flipCard(button);
+
+    grid.appendChild(button);
+
+  });
 
 }
+
+
+function flipCard(card){
+
+  if(
+    lock ||
+    card===firstCard ||
+    card.classList.contains("matched")
+  ){
+    return;
+  }
+
+  card.textContent=
+    card.dataset.value;
+
+  if(!firstCard){
+
+    firstCard=card;
+
+    return;
+
+  }
+
+  secondCard=card;
+
+  lock=true;
+
+  if(
+    firstCard.dataset.value===
+    secondCard.dataset.value
+  ){
+
+    firstCard.classList.add("matched");
+
+    secondCard.classList.add("matched");
+
+    matches++;
+
+    firstCard=null;
+
+    secondCard=null;
+
+    lock=false;
+
+    if(matches===6){
+
+      document
+      .getElementById("memoryResult")
+      .textContent=
+        "😭💗 semua pasangan ketemu! ternyata Iky & Jihan cocok juga";
+
+    }
+
+  }else{
+
+    setTimeout(()=>{
+
+      firstCard.textContent="❓";
+
+      secondCard.textContent="❓";
+
+      firstCard=null;
+
+      secondCard=null;
+
+      lock=false;
+
+    },700);
+
+  }
+
+}
+
+
+
+/* =====================================================
+   LOVE MESSAGE
+===================================================== */
+
+function loveMessage(number){
+
+  const messages={
+
+    1:
+    "dan kalau harus memilih lagi dari awal, Iky tetap bakal memilih Jihan 💗",
+
+    2:
+    "makasih karena sudah bertahan sejauh ini, walaupun perjalanan kita nggak selalu gampang 🥹",
+
+    3:
+    "kalau boleh egois sedikit, Iky masih mau punya banyak cerita lagi sama Jihan 💕",
+
+    4:
+    "semoga yang sekarang bukan cuma jadi cerita, tapi jadi awal dari banyak cerita berikutnya 🩷"
+
+  };
+
+  document
+  .getElementById("loveResult")
+  .textContent=
+    messages[number];
+
+}
+
+
+
+/* =====================================================
+   FLOATING HEART
+===================================================== */
+
+setInterval(()=>{
+
+  const heart=
+    document.createElement("div");
+
+  heart.className=
+    "floating-heart";
+
+  heart.textContent=
+    [
+      "💗",
+      "💖",
+      "💕",
+      "🩷",
+      "✨"
+    ][
+      Math.floor(
+        Math.random()*5
+      )
+    ];
+
+  heart.style.left=
+    Math.random()*100+
+    "vw";
+
+  heart.style.fontSize=
+    15+
+    Math.random()*25+
+    "px";
+
+  heart.style.animationDuration=
+    5+
+    Math.random()*5+
+    "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(
+    ()=>heart.remove(),
+    10000
+  );
+
+},700);
 
 </script>
+
 
 </body>
 </html>
