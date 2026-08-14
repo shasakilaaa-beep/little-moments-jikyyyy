@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>-little-moments-jikyyy ♡</title>
+<style>
+:root{--pink:#ef4f98;--hot:#ff4d9a;--soft:#fff0f7;--ink:#29202b;--muted:#755b6b;--line:#ffd3e5}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 0%,#fff 0 18%,transparent 40%),linear-gradient(135deg,#fff4f9,#ffddeb 48%,#fff 100%);min-height:100vh;overflow-x:hidden}a{text-decoration:none;color:inherit}
+.nav{position:fixed;z-index:20;top:12px;left:50%;transform:translateX(-50%);width:min(92%,700px);padding:12px 18px;background:#fffdfef2;border:1px solid #fff;border-radius:999px;box-shadow:0 14px 40px #b92d6c18;display:flex;justify-content:center;gap:12px;backdrop-filter:blur(15px)}.nav a{font-weight:900;padding:9px 14px;border-radius:999px}.nav a:hover{background:#ffe2ee;color:var(--pink)}
+.music{position:fixed;z-index:30;right:16px;bottom:18px;border:0;border-radius:999px;background:var(--hot);color:#fff;padding:14px 18px;font-weight:900;box-shadow:0 15px 35px #ff4d9a55}
+.wrap{width:min(1050px,90%);margin:auto;padding:105px 0 70px}.hero{min-height:86vh;display:flex;align-items:center;justify-content:center;text-align:left}.hero-inner{width:100%;max-width:920px}.chapter{color:var(--pink);font-weight:950;font-size:15px;margin-bottom:12px}.title{font-size:clamp(70px,14vw,150px);line-height:.78;letter-spacing:-8px;margin:0 0 24px;font-weight:1000}.title span{color:var(--pink)}.lead{max-width:720px;font-size:clamp(18px,3vw,27px);line-height:1.65;color:var(--muted);font-weight:650}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 20px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:950;box-shadow:0 14px 35px #a42b6415;transition:.25s}.btn.primary{background:var(--hot);color:#fff;border-color:var(--hot)}.btn:hover{transform:translateY(-4px) rotate(-1deg)}
+.note{margin-top:34px;background:#fffdfdce;border:1px solid #fff;border-radius:28px;padding:25px;box-shadow:0 18px 45px #b92d6c12;max-width:800px}.note b{color:var(--pink)}.tiny{font-size:13px;color:#a17d90}.heart{position:fixed;bottom:-30px;pointer-events:none;animation:up linear forwards;z-index:2}@keyframes up{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media(max-width:600px){.nav{gap:2px}.nav a{font-size:13px;padding:8px 10px}.title{letter-spacing:-5px}.hero{min-height:82vh}.lead{font-size:18px}}
+</style></head>
+<body>
+<nav class="nav"><a href="index.html">home</a><a href="cerita.html">cerita</a><a href="galeri.html">foto</a><a href="surat.html">surat</a></nav>
+<audio id="loveMusic" loop preload="none" src="I_Lay_My_Love_On_You.mp3"></audio><button class="music" id="musicBtn">🎵 putar I Lay My Love On You</button>
+<main class="wrap"><section class="hero"><div class="hero-inner">
+<div class="chapter">chapter 01 • the beginning of something random 💗</div>
+<h1 class="title">little<br><span>moments</span><br>jikyyy</h1>
+<p class="lead">a little place for iky &amp; jihan to keep our memories, stories, and all the little moments that somehow became <b>everything</b> 🩷</p>
+<div class="buttons"><a class="btn primary" href="cerita.html">♡ buka cerita kita</a><a class="btn" href="galeri.html">📸 lihat chaos gallery</a></div>
+<div class="note"><b>spoiler:</b> awalnya kita cuma kenal nggak sengaja di telegram, jihan juga katanya nggak serius 😭 tapi plot twist-nya malah kita masih di sini sampai sekarang<br><span class="tiny">jangan skip sampai halaman terakhir, ada surat yang sengaja disimpan buat kamu</span></div>
+</div></section></main>
+<script>
+const audio=document.getElementById('loveMusic'),btn=document.getElementById('musicBtn');let playing=false;btn.onclick=async()=>{try{if(!playing){await audio.play();playing=true;btn.textContent='⏸️ matikan lagu'}else{audio.pause();playing=false;btn.textContent='🎵 putar I Lay My Love On You'}}catch(e){alert('masukkan file I_Lay_My_Love_On_You.mp3 ke folder utama web yaa 💗')}};
+setInterval(()=>{const h=document.createElement('div');h.className='heart';h.textContent=['💗','🩷','💕','✨','💖'][Math.floor(Math.random()*5)];h.style.left=Math.random()*100+'vw';h.style.fontSize=14+Math.random()*25+'px';h.style.animationDuration=5+Math.random()*5+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),10000)},650);
+</script></body></html>

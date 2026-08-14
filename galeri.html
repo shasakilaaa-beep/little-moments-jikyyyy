@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>galeri kita — iky ♡ jihan</title>
+<style>
+:root{
+  --pink:#ff5f9e; --pink2:#ff9fc4; --soft:#fff4f8; --ink:#2b2030;
+  --white:#fff; --line:#ffd1e1; --shadow:0 18px 50px rgba(255,95,158,.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink); background:
+  radial-gradient(circle at 10% 10%,#ffe3ee 0 8%,transparent 25%),
+  radial-gradient(circle at 90% 20%,#fff0f7 0 10%,transparent 28%),
+  linear-gradient(135deg,#fff,#fff6fa 50%,#fff);
+  min-height:100vh; overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.nav{
+  position:fixed; z-index:50; top:14px; left:50%; transform:translateX(-50%);
+  width:min(94%,720px); padding:10px 14px; border:1px solid #ffffffaa;
+  background:#ffffffcc; backdrop-filter:blur(16px); border-radius:999px;
+  box-shadow:0 10px 30px #ff5f9e18; display:flex; justify-content:space-between; align-items:center;
+}
+.brand{font-weight:900;color:var(--pink);letter-spacing:-.4px}
+.navlinks{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.navlinks a{padding:8px 11px;border-radius:999px;font-size:12px;font-weight:800}
+.navlinks a:hover{background:#ffe5ef}
+.music{
+  position:fixed; z-index:60; right:16px; bottom:16px; border:0; cursor:pointer;
+  background:var(--pink); color:#fff; border-radius:999px; padding:12px 16px;
+  font-weight:900; box-shadow:0 12px 28px #ff5f9e55; transition:.25s;
+}
+.music:hover{transform:translateY(-3px) rotate(-1deg)}
+.page{width:min(1100px,92%);margin:0 auto;padding:110px 0 70px}
+.hero{min-height:82vh;display:grid;place-items:center;text-align:center;position:relative}
+.kicker{display:inline-block;padding:8px 14px;border-radius:999px;background:#ffe7f0;color:#e53c7e;font-weight:900;font-size:13px}
+h1{font-size:clamp(48px,9vw,105px);line-height:.92;margin:20px 0 15px;letter-spacing:-6px}
+h1 span{color:var(--pink)}
+.hero p{font-size:clamp(16px,2vw,20px);max-width:700px;margin:0 auto;line-height:1.75;color:#624e5d}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:13px 18px;border-radius:999px;
+  font-weight:900;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);transition:.25s;
+}
+.btn.primary{background:var(--pink);color:#fff;border-color:var(--pink)}
+.btn:hover{transform:translateY(-4px)}
+.card{
+  background:#ffffffd9;border:1px solid var(--line);border-radius:30px;padding:28px;
+  box-shadow:var(--shadow);backdrop-filter:blur(12px);
+}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.nav{width:96%}.navlinks a{padding:7px 8px}.brand{display:none}h1{letter-spacing:-3px}}
+.story{
+  position:relative;padding:28px 28px 28px 70px;margin:18px 0;background:#fff;
+  border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow)
+}
+.story:before{content:"";position:absolute;left:25px;top:30px;width:18px;height:18px;background:var(--pink);border-radius:50%;box-shadow:0 0 0 8px #ffe0eb}
+.story:after{content:"";position:absolute;left:33px;top:48px;width:2px;height:calc(100% - 20px);background:#ffd5e3;z-index:-1}
+.story h3{margin:0 0 7px;color:#e83f7e}
+.story p{line-height:1.8;margin:0;color:#604e5a}
+.quote{
+  margin:28px 0;padding:28px;border-radius:28px;background:linear-gradient(135deg,#ff6aa7,#ff9fc4);
+  color:#fff;font-size:clamp(20px,3vw,30px);font-weight:900;line-height:1.4;box-shadow:0 20px 50px #ff5f9e44
+}
+.polaroid{background:#fff;padding:10px 10px 16px;border-radius:12px;box-shadow:0 16px 35px #39203116;transform:rotate(var(--r,0deg));transition:.35s}
+.polaroid:nth-child(3n){--r:1.2deg}.polaroid:nth-child(3n+1){--r:-1.2deg}
+.polaroid:hover{transform:rotate(0) translateY(-8px) scale(1.02)}
+.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;display:block}
+.polaroid figcaption{text-align:center;padding:10px 4px 0;font-family:cursive;font-weight:800;color:#765567}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.gallery{grid-template-columns:repeat(2,1fr);gap:12px}}
+.letter{font-size:17px;line-height:2;background:#fff;padding:32px;border-radius:28px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.letter strong{color:var(--pink)}
+.footer{text-align:center;padding:30px 0 20px;color:#9a7b8a;font-size:13px}
+.heart{position:fixed;pointer-events:none;z-index:2;animation:floatUp linear forwards}
+@keyframes floatUp{from{transform:translateY(20px) scale(.7) rotate(0);opacity:0}15%{opacity:1}to{transform:translateY(-105vh) scale(1.2) rotate(25deg);opacity:0}}
+.spark{position:absolute;width:8px;height:8px;background:#ff9fc4;border-radius:50%;animation:twinkle 2s infinite}
+@keyframes twinkle{0%,100%{transform:scale(.4);opacity:.25}50%{transform:scale(1.5);opacity:1}}
+.reveal{animation:rise .8s both}
+@keyframes rise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.stamp{display:inline-block;transform:rotate(-4deg);padding:9px 12px;border:2px dashed var(--pink);border-radius:12px;color:var(--pink);font-weight:900}
+.bigheart{font-size:70px;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.missing{aspect-ratio:4/5;display:grid;place-items:center;text-align:center;color:#d15a8c;background:linear-gradient(135deg,#fff,#ffe9f2);border-radius:8px;font-weight:900}.missing small{font-weight:700;font-size:12px}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="brand">iky ♡ jihan</div>
+  <div class="navlinks">
+    <a href="index.html">home</a>
+    <a href="cerita.html">cerita</a>
+    <a href="galeri.html">foto</a>
+    <a href="surat.html">surat</a>
+  </div>
+</nav>
+<audio id="loveMusic" loop preload="none" src="I_Lay_My_Love_On_You.mp3"></audio>
+<button class="music" id="musicBtn">🎵 putar I Lay My Love On You</button>
+
+
+<main class="page">
+  <div class="kicker">chapter 02 • bukti kalau kita pernah se-random ini</div>
+  <h1 style="font-size:clamp(42px,7vw,78px)">our little<br><span>chaos</span> gallery 📸</h1>
+  <p style="max-width:760px;line-height:1.8;color:#705b68">
+    foto-foto ini nggak harus sempurna. justru yang blur, filter aneh, muka ngaco,
+    dan foto yang kelihatannya nggak penting itu yang bikin kenangan kita terasa hidup
+  </p>
+  <div class="gallery"><figure class="polaroid reveal"><img src="foto/kenangan-01a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #01 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-01b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #02 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-01c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #03 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-01d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #04 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-02a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #05 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-02b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #06 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-02c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #07 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-02d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #08 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-03a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #09 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-03b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #10 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-03c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #11 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-03d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #12 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-04a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #13 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-04b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #14 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-04c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #15 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-04d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #16 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-05a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #17 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-05b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #18 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-05c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #19 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-05d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #20 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-06a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #21 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-06b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #22 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-06c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #23 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-06d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #24 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-07a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #25 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-07b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #26 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-07c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #27 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-07d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #28 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-08a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #29 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-08b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #30 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-08c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #31 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-08d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #32 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-09a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #33 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-09b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #34 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-09c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #35 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-09d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #36 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-10a.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #37 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-10b.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #38 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-10c.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #39 💗</figcaption></figure>
+<figure class="polaroid reveal"><img src="foto/kenangan-10d.jpg" alt="kenangan iky dan jihan" loading="lazy"><figcaption>little moment #40 💗</figcaption></figure></div>
+  <div class="btns" style="margin-top:35px">
+    <a class="btn" href="cerita.html">← cerita</a>
+    <a class="btn primary" href="surat.html">ada surat buat kamu →</a>
+  </div>
+</main>
+
+<div class="footer">dibuat khusus buat jihan, karena satu website rasanya masih kurang buat nyimpen semua cerita kita ♡</div>
+<script>
+const audio = document.getElementById('loveMusic');
+const musicBtn = document.getElementById('musicBtn');
+let playing = false;
+musicBtn?.addEventListener('click', async ()=>{
+  if(!audio) return;
+  try{
+    if(!playing){ await audio.play(); playing=true; musicBtn.textContent='⏸️ matiin lagu'; }
+    else{ audio.pause(); playing=false; musicBtn.textContent='🎵 putar I Lay My Love On You'; }
+  }catch(e){
+    alert('tinggal masukkan file "I_Lay_My_Love_On_You.mp3" ke folder utama web yaa 💗');
+  }
+});
+function hearts(){
+  const el=document.createElement('div'); el.className='heart';
+  el.textContent=['💗','💖','💕','💘','🩷','✨'][Math.floor(Math.random()*6)];
+  el.style.left=Math.random()*100+'vw';
+  el.style.bottom='-30px';
+  el.style.fontSize=(14+Math.random()*25)+'px';
+  el.style.animationDuration=(5+Math.random()*5)+'s';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),10000);
+}
+setInterval(hearts,700);
+document.querySelectorAll("img").forEach(img=>{img.addEventListener("error",()=>{img.style.display="none";img.parentElement.classList.add("photo-missing");img.parentElement.insertAdjacentHTML("afterbegin","<div class=\"missing\">📷<br><small>foto belum diupload</small></div>");},{once:true})});
+</script>
+</body>
+</html>
