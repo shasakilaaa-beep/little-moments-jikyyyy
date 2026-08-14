@@ -26,4 +26,6 @@
 <script>
 const audio=document.getElementById('loveMusic'),btn=document.getElementById('musicBtn');let playing=false;btn.onclick=async()=>{try{if(!playing){await audio.play();playing=true;btn.textContent='⏸️ matikan lagu'}else{audio.pause();playing=false;btn.textContent='🎵 putar I Lay My Love On You'}}catch(e){alert('masukkan file I_Lay_My_Love_On_You.mp3 ke folder utama web yaa 💗')}};
 setInterval(()=>{const h=document.createElement('div');h.className='heart';h.textContent=['💗','🩷','💕','✨','💖'][Math.floor(Math.random()*5)];h.style.left=Math.random()*100+'vw';h.style.fontSize=14+Math.random()*25+'px';h.style.animationDuration=5+Math.random()*5+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),10000)},650);
-</script></body></html>
+</<script src="music.js"></script>
+</body>
+</html>
