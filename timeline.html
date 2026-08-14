@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>timeline kita — iky ♡ jihan</title>
+
+<style>
+:root{
+  --pink:#ff5f9e;
+  --pink2:#ff9fc4;
+  --soft:#fff4f8;
+  --ink:#2b2030;
+  --line:#ffd1e1;
+  --shadow:0 18px 50px rgba(255,95,158,.18);
+}
+
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:
+  radial-gradient(circle at 10% 10%,#ffe3ee 0 8%,transparent 25%),
+  radial-gradient(circle at 90% 20%,#fff0f7 0 10%,transparent 28%),
+  linear-gradient(135deg,#fff,#fff6fa 50%,#fff);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.nav{
+  position:fixed;
+  z-index:50;
+  top:14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(96%,760px);
+  padding:10px 14px;
+  border:1px solid #ffffffaa;
+  background:#ffffffd9;
+  backdrop-filter:blur(16px);
+  border-radius:999px;
+  box-shadow:0 10px 30px #ff5f9e18;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.navlinks{
+  display:flex;
+  gap:4px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.navlinks a{
+  padding:8px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.navlinks a:hover{
+  background:#ffe5ef;
+}
+
+.page{
+  width:min(900px,92%);
+  margin:auto;
+  padding:120px 0 70px;
+}
+
+.hero{
+  text-align:center;
+  padding:45px 0 55px;
+}
+
+.kicker{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#ffe7f0;
+  color:#e53c7e;
+  font-weight:900;
+  font-size:13px;
+}
+
+h1{
+  font-size:clamp(48px,9vw,88px);
+  line-height:.95;
+  margin:20px 0;
+  letter-spacing:-5px;
+}
+
+h1 span{
+  color:var(--pink);
+}
+
+.hero p{
+  max-width:680px;
+  margin:auto;
+  line-height:1.8;
+  color:#705b68;
+  font-size:17px;
+}
+
+.timeline{
+  position:relative;
+  margin-top:30px;
+}
+
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:linear-gradient(
+    var(--pink2),
+    #ffdce9,
+    var(--pink2)
+  );
+  transform:translateX(-50%);
+  border-radius:99px;
+}
+
+.item{
+  width:50%;
+  padding:15px 35px;
+  position:relative;
+}
+
+.item:nth-child(odd){
+  left:0;
+  text-align:right;
+}
+
+.item:nth-child(even){
+  left:50%;
+}
+
+.dot{
+  position:absolute;
+  top:27px;
+  width:24px;
+  height:24px;
+  background:var(--pink);
+  border:5px solid #fff;
+  border-radius:50%;
+  box-shadow:0 5px 20px #ff5f9e55;
+}
+
+.item:nth-child(odd) .dot{
+  right:-12px;
+}
+
+.item:nth-child(even) .dot{
+  left:-12px;
+}
+
+.box{
+  background:#ffffffea;
+  border:1px solid var(--line);
+  border-radius:25px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+
+.box:hover{
+  transform:translateY(-6px);
+}
+
+.date{
+  color:var(--pink);
+  font-weight:900;
+  font-size:13px;
+}
+
+.box h2{
+  margin:8px 0;
+  font-size:21px;
+}
+
+.box p{
+  margin:0;
+  color:#6d5965;
+  line-height:1.8;
+}
+
+.quote{
+  margin:50px 0;
+  padding:30px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#ff65a5,#ff9fc4);
+  color:white;
+  text-align:center;
+  font-size:22px;
+  font-weight:900;
+  line-height:1.5;
+  box-shadow:0 20px 50px #ff5f9e44;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:40px;
+}
+
+.btn{
+  padding:13px 18px;
+  border-radius:999px;
+  font-weight:900;
+  border:1px solid var(--line);
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+
+.btn.primary{
+  background:var(--pink);
+  color:#fff;
+}
+
+.footer{
+  text-align:center;
+  padding:30px;
+  color:#9a7b8a;
+  font-size:13px;
+}
+
+.heart{
+  position:fixed;
+  pointer-events:none;
+  z-index:2;
+  animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+  from{
+    transform:translateY(20px) scale(.7);
+    opacity:0;
+  }
+  15%{opacity:1}
+  to{
+    transform:translateY(-105vh) scale(1.2) rotate(25deg);
+    opacity:0;
+  }
+}
+
+@media(max-width:650px){
+
+  .nav{
+    top:10px;
+  }
+
+  .navlinks a{
+    padding:7px 8px;
+    font-size:11px;
+  }
+
+  .page{
+    padding-top:110px;
+  }
+
+  .timeline:before{
+    left:18px;
+  }
+
+  .item,
+  .item:nth-child(even){
+    width:100%;
+    left:0;
+    padding:12px 0 12px 48px;
+    text-align:left;
+  }
+
+  .item:nth-child(odd) .dot,
+  .item:nth-child(even) .dot{
+    left:6px;
+    right:auto;
+  }
+
+  h1{
+    letter-spacing:-3px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="navlinks">
+    <a href="index.html">home</a>
+    <a href="cerita.html">cerita</a>
+    <a href="timeline.html">timeline</a>
+    <a href="galeri.html">foto</a>
+    <a href="reasons.html">reasons</a>
+    <a href="surat.html">surat</a>
+    <a href="surprise.html">🎁</a>
+  </div>
+</nav>
+
+<main class="page">
+
+<section class="hero">
+
+<div class="kicker">chapter 03 • our little journey 💗</div>
+
+<h1>
+  our little<br>
+  <span>timeline</span> 🫶🏻
+</h1>
+
+<p>
+  nggak semua perjalanan harus punya tanggal yang sempurna,
+  beberapa momen cukup diingat karena pernah membuat kita
+  tersenyum, salting, marah, kangen, lalu kembali saling memilih
+</p>
+
+</section>
+
+<section class="timeline">
+
+<div class="item">
+<span class="dot"></span>
+<div class="box">
+<div class="date">THE BEGINNING 💌</div>
+<h2>awal kita</h2>
+<p>
+semuanya berawal dari dua orang yang mungkin awalnya
+nggak menyangka bakal sampai sejauh ini
+</p>
+</div>
+</div>
+
+<div class="item">
+<span class="dot"></span>
+<div class="box">
+<div class="date">FIRST CONVERSATION 💬</div>
+<h2>mulai sering ngobrol</h2>
+<p>
+dari obrolan sederhana sampai akhirnya kita mulai
+menunggu pesan satu sama lain
+</p>
+</div>
+</div>
+
+<div class="item">
+<span class="dot"></span>
+<div class="box">
+<div class="date">GETTING CLOSER 🫶🏻</div>
+<h2>mulai dekat</h2>
+<p>
+pelan-pelan kamu bukan lagi sekadar seseorang
+yang aku kenal, tapi seseorang yang aku tunggu
+</p>
+</div>
+</div>
+
+<div class="item">
+<span class="dot"></span>
+<div class="box">
+<div class="date">THE LITTLE MOMENTS 🌷</div>
+<h2>momen kecil yang berarti</h2>
+<p>
+ternyata bukan cuma momen besar yang aku ingat,
+hal-hal kecil tentang kamu justru paling sering
+muncul di kepala
+</p>
+</div>
+</div>
+
+<div class="item">
+<span class="dot"></span>
+<div class="box">
+<div class="date">THE HARD DAYS 🌧️</div>
+<h2>pernah capek juga</h2>
+<p>
+kita pernah salah paham, pernah kecewa,
+pernah merasa semuanya berat, tapi kita masih belajar
+untuk saling memahami
+</p>
+</div>
+</div>
+
+<div class="item">
+<span class="dot"></span>
+<div class="box">
+<div class="date">CHOOSING AGAIN 💗</div>
+<h2>tetap memilih kita</h2>
+<p>
+karena hubungan bukan tentang nggak pernah punya masalah,
+tapi tentang dua orang yang mau memperbaikinya
+</p>
+</div>
+</div>
+
+<div class="item">
+<span class="dot"></span>
+<div class="box">
+<div class="date">TODAY ✨</div>
+<h2>masih jadi kita</h2>
+<p>
+dan sampai hari ini, aku masih senang karena
+cerita kita belum selesai
+</p>
+</div>
+</div>
+
+</section>
+
+<div class="quote">
+“kalau nanti kita melihat kembali perjalanan ini,
+semoga kita tersenyum karena ternyata
+kita berhasil melewati semuanya bersama 💗”
+</div>
+
+<div class="buttons">
+<a class="btn" href="cerita.html">← cerita</a>
+<a class="btn primary" href="reasons.html">alasan aku sayang →</a>
+</div>
+
+</main>
+
+<div class="footer">
+dibuat untuk menyimpan perjalanan kecil iky ♡ jihan
+</div>
+
+<script src="music.js"></script>
+
+<script>
+function hearts(){
+
+const el=document.createElement("div");
+
+el.className="heart";
+
+el.textContent=[
+"💗","💖","💕","🩷","💘","✨"
+][Math.floor(Math.random()*6)];
+
+el.style.left=Math.random()*100+"vw";
+
+el.style.bottom="-30px";
+
+el.style.fontSize=(14+Math.random()*25)+"px";
+
+el.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(el);
+
+setTimeout(()=>el.remove(),10000);
+
+}
+
+setInterval(hearts,800);
+</script>
+
+</body>
+</html>
