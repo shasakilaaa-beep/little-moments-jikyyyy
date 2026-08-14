@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>reasons — iky ♡ jihan</title>
+
+<style>
+
+:root{
+--pink:#ff5f9e;
+--pink2:#ff9fc4;
+--soft:#fff4f8;
+--ink:#2b2030;
+--line:#ffd1e1;
+--shadow:0 18px 50px rgba(255,95,158,.18);
+}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Inter,system-ui,sans-serif;
+color:var(--ink);
+background:
+radial-gradient(circle at 10% 10%,#ffe3ee 0 8%,transparent 25%),
+radial-gradient(circle at 90% 20%,#fff0f7 0 10%,transparent 28%),
+linear-gradient(135deg,#fff,#fff6fa 50%,#fff);
+min-height:100vh;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.nav{
+position:fixed;
+z-index:50;
+top:14px;
+left:50%;
+transform:translateX(-50%);
+width:min(96%,760px);
+padding:10px;
+background:#ffffffd9;
+backdrop-filter:blur(15px);
+border:1px solid #ffffffaa;
+border-radius:999px;
+box-shadow:0 10px 30px #ff5f9e18;
+}
+
+.navlinks{
+display:flex;
+gap:4px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.navlinks a{
+padding:8px 10px;
+border-radius:999px;
+font-size:12px;
+font-weight:900;
+}
+
+.navlinks a:hover{
+background:#ffe5ef;
+}
+
+.page{
+width:min(1050px,92%);
+margin:auto;
+padding:120px 0 70px;
+}
+
+.hero{
+text-align:center;
+padding:40px 0;
+}
+
+.kicker{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:#ffe7f0;
+color:#e53c7e;
+font-size:13px;
+font-weight:900;
+}
+
+h1{
+font-size:clamp(48px,9vw,90px);
+line-height:.95;
+letter-spacing:-5px;
+margin:20px 0;
+}
+
+h1 span{
+color:var(--pink);
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+color:#705b68;
+}
+
+.reasons{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-top:35px;
+}
+
+.reason{
+background:#ffffffeb;
+border:1px solid var(--line);
+border-radius:28px;
+padding:25px;
+box-shadow:var(--shadow);
+transition:.3s;
+position:relative;
+overflow:hidden;
+}
+
+.reason:before{
+content:"♡";
+position:absolute;
+right:-10px;
+top:-20px;
+font-size:100px;
+color:#ffe3ed;
+font-weight:900;
+}
+
+.reason:hover{
+transform:translateY(-8px) rotate(-1deg);
+}
+
+.number{
+color:var(--pink);
+font-size:13px;
+font-weight:900;
+}
+
+.reason h2{
+font-size:19px;
+margin:10px 0;
+position:relative;
+}
+
+.reason p{
+color:#705b68;
+line-height:1.7;
+position:relative;
+}
+
+.big{
+margin:45px 0;
+padding:35px;
+border-radius:32px;
+background:linear-gradient(135deg,#ff65a5,#ff9fc4);
+color:white;
+text-align:center;
+box-shadow:0 20px 50px #ff5f9e44;
+}
+
+.big .heart{
+font-size:60px;
+}
+
+.big h2{
+font-size:30px;
+margin:10px 0;
+}
+
+.big p{
+line-height:1.8;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:13px 18px;
+border-radius:999px;
+font-weight:900;
+border:1px solid var(--line);
+background:#fff;
+box-shadow:var(--shadow);
+}
+
+.btn.primary{
+background:var(--pink);
+color:#fff;
+}
+
+.footer{
+text-align:center;
+padding:30px;
+color:#9a7b8a;
+font-size:13px;
+}
+
+.float-heart{
+position:fixed;
+pointer-events:none;
+animation:float 6s linear forwards;
+}
+
+@keyframes float{
+from{
+transform:translateY(20px);
+opacity:0;
+}
+15%{
+opacity:1;
+}
+to{
+transform:translateY(-105vh) rotate(30deg);
+opacity:0;
+}
+}
+
+@media(max-width:800px){
+
+.reasons{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:550px){
+
+.reasons{
+grid-template-columns:1fr;
+}
+
+.navlinks a{
+font-size:11px;
+padding:7px 8px;
+}
+
+h1{
+letter-spacing:-3px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+
+<div class="navlinks">
+
+<a href="index.html">home</a>
+<a href="cerita.html">cerita</a>
+<a href="timeline.html">timeline</a>
+<a href="galeri.html">foto</a>
+<a href="reasons.html">reasons</a>
+<a href="surat.html">surat</a>
+<a href="surprise.html">🎁</a>
+
+</div>
+
+</nav>
+
+<main class="page">
+
+<section class="hero">
+
+<div class="kicker">
+chapter 04 • little reasons 💗
+</div>
+
+<h1>
+reasons<br>
+<span>i love you</span> 💗
+</h1>
+
+<p>
+aku mungkin nggak selalu pintar menjelaskan kenapa aku sayang kamu,
+jadi halaman ini aku buat untuk menyimpan beberapa alasan kecilnya
+</p>
+
+</section>
+
+<section class="reasons">
+
+<div class="reason">
+<div class="number">#01</div>
+<h2>karena kamu adalah kamu</h2>
+<p>
+aku nggak jatuh cinta sama versi sempurna kamu,
+aku suka kamu dengan segala sisi yang kamu punya
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#02</div>
+<h2>senyum kamu</h2>
+<p>
+entah kenapa senyum kamu selalu punya cara sendiri
+buat bikin hari aku jadi lebih baik
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#03</div>
+<h2>cara kamu bercerita</h2>
+<p>
+cerita sederhana dari kamu bisa terasa menarik
+karena yang cerita adalah kamu
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#04</div>
+<h2>kamu bikin aku nyaman</h2>
+<p>
+ada rasa nyaman yang susah dijelaskan
+setiap kali aku ngobrol sama kamu
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#05</div>
+<h2>kamu bikin aku belajar</h2>
+<p>
+belajar sabar, belajar mengerti,
+dan belajar bahwa hubungan butuh usaha dari dua orang
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#06</div>
+<h2>kamu penting</h2>
+<p>
+bukan karena kamu harus selalu ada,
+tapi karena kehadiran kamu memang berarti
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#07</div>
+<h2>hal kecil tentang kamu</h2>
+<p>
+kebiasaan kecil, cara ngomong,
+sampai hal random yang kadang bikin aku senyum sendiri
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#08</div>
+<h2>kamu membuat hari biasa berbeda</h2>
+<p>
+hari yang biasa saja bisa terasa lebih menyenangkan
+ketika ada pesan dari kamu
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#09</div>
+<h2>karena kita masih berusaha</h2>
+<p>
+hubungan bukan tentang siapa yang paling sempurna,
+tapi siapa yang masih mau memperbaiki
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#10</div>
+<h2>karena aku memilih kamu</h2>
+<p>
+dari sekian banyak orang,
+aku tetap ingin mengenal kamu lebih jauh
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#11</div>
+<h2>jarak bukan akhir</h2>
+<p>
+meskipun jauh, masih ada cara untuk saling menjaga
+dan saling mengingat
+</p>
+</div>
+
+<div class="reason">
+<div class="number">#12</div>
+<h2>karena cerita kita belum selesai</h2>
+<p>
+masih banyak tempat yang belum kita datangi,
+foto yang belum kita ambil,
+dan cerita yang belum kita tulis
+</p>
+</div>
+
+</section>
+
+<section class="big">
+
+<div class="heart">💗</div>
+
+<h2>dan alasan paling sederhana...</h2>
+
+<p>
+aku nggak butuh seribu alasan untuk tetap sayang kamu,
+karena satu alasan yang paling cukup adalah:
+<br><br>
+<strong>aku memang sayang kamu</strong>
+</p>
+
+</section>
+
+<div class="buttons">
+
+<a class="btn" href="timeline.html">
+← timeline
+</a>
+
+<a class="btn primary" href="surprise.html">
+buka kejutan 🎁
+</a>
+
+</div>
+
+</main>
+
+<div class="footer">
+made with love for jihan ♡
+</div>
+
+<script src="music.js"></script>
+
+<script>
+
+function makeHeart(){
+
+const h=document.createElement("div");
+
+h.className="float-heart";
+
+h.textContent=[
+"💗",
+"💖",
+"💕",
+"🩷",
+"💘",
+"✨"
+][Math.floor(Math.random()*6)];
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.bottom="-30px";
+
+h.style.fontSize=(15+Math.random()*25)+"px";
+
+h.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),10000);
+
+}
+
+setInterval(makeHeart,700);
+
+</script>
+
+</body>
+</html>
