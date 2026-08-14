@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="id">
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>surprise ♡ jihan</title>
+
+<style>
+
+:root{
+--pink:#ff5f9e;
+--pink2:#ff9fc4;
+--ink:#2b2030;
+}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+min-height:100vh;
+font-family:Inter,system-ui,sans-serif;
+background:
+radial-gradient(circle at 20% 20%,#ffdce9,transparent 30%),
+radial-gradient(circle at 80% 70%,#ffe9f3,transparent 30%),
+linear-gradient(135deg,#fff,#fff1f7);
+color:var(--ink);
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.nav{
+position:fixed;
+z-index:50;
+top:14px;
+left:50%;
+transform:translateX(-50%);
+width:min(96%,760px);
+padding:10px;
+background:#ffffffd9;
+backdrop-filter:blur(15px);
+border-radius:999px;
+box-shadow:0 10px 30px #ff5f9e18;
+}
+
+.navlinks{
+display:flex;
+gap:4px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.navlinks a{
+padding:8px 10px;
+border-radius:999px;
+font-size:12px;
+font-weight:900;
+}
+
+.navlinks a:hover{
+background:#ffe5ef;
+}
+
+.page{
+min-height:100vh;
+display:grid;
+place-items:center;
+padding:110px 20px 50px;
+}
+
+.container{
+text-align:center;
+max-width:700px;
+width:100%;
+}
+
+.kicker{
+display:inline-block;
+padding:8px 15px;
+border-radius:999px;
+background:#ffe5ef;
+color:#e53c7e;
+font-size:13px;
+font-weight:900;
+}
+
+h1{
+font-size:clamp(48px,10vw,90px);
+line-height:.9;
+letter-spacing:-5px;
+margin:20px 0;
+}
+
+h1 span{
+color:var(--pink);
+}
+
+.subtitle{
+color:#705b68;
+line-height:1.8;
+max-width:600px;
+margin:auto;
+}
+
+/* GIFT */
+
+.gift-area{
+margin:55px auto 35px;
+width:250px;
+height:230px;
+position:relative;
+cursor:pointer;
+transition:.3s;
+}
+
+.gift-area:hover{
+transform:scale(1.05);
+}
+
+.gift-box{
+position:absolute;
+bottom:15px;
+left:25px;
+width:200px;
+height:145px;
+background:linear-gradient(135deg,#ff72ac,#ff4e91);
+border-radius:15px;
+box-shadow:0 25px 45px #ff5f9e44;
+}
+
+.gift-box:before{
+content:"";
+position:absolute;
+left:80px;
+top:0;
+width:40px;
+height:100%;
+background:#ffd1e1;
+}
+
+.gift-lid{
+position:absolute;
+z-index:3;
+left:15px;
+top:35px;
+width:220px;
+height:45px;
+background:linear-gradient(135deg,#ff8ab9,#ff5f9e);
+border-radius:12px;
+box-shadow:0 10px 20px #ff5f9e33;
+transition:.7s;
+}
+
+.ribbon{
+position:absolute;
+z-index:5;
+left:105px;
+top:35px;
+width:40px;
+height:190px;
+background:#ffd1e1;
+}
+
+.bow{
+position:absolute;
+z-index:6;
+top:0;
+left:82px;
+width:75px;
+height:60px;
+}
+
+.bow:before,
+.bow:after{
+content:"";
+position:absolute;
+width:55px;
+height:40px;
+background:#ffd1e1;
+border-radius:50% 50% 10% 50%;
+top:5px;
+}
+
+.bow:before{
+left:-25px;
+transform:rotate(25deg);
+}
+
+.bow:after{
+right:-25px;
+transform:rotate(-25deg);
+border-radius:50% 50% 50% 10%;
+}
+
+.open .gift-lid{
+transform:translateY(-90px) rotate(-8deg);
+}
+
+.open .bow{
+transform:translateY(-90px);
+transition:.7s;
+}
+
+.click-text{
+margin-top:15px;
+font-weight:900;
+color:#e53c7e;
+}
+
+/* MESSAGE */
+
+.message{
+display:none;
+animation:appear .9s both;
+}
+
+.message.show{
+display:block;
+}
+
+.message-card{
+background:#ffffffed;
+border:1px solid #ffd1e1;
+border-radius:32px;
+padding:35px;
+box-shadow:0 20px 60px #ff5f9e22;
+}
+
+.message-card .heart{
+font-size:65px;
+}
+
+.message-card h2{
+font-size:30px;
+margin:10px 0 20px;
+color:var(--pink);
+}
+
+.message-card p{
+line-height:2;
+color:#604e5a;
+}
+
+.signature{
+margin-top:25px;
+font-weight:900;
+color:var(--pink);
+font-size:18px;
+}
+
+.final{
+margin-top:25px;
+padding:20px;
+border-radius:20px;
+background:#fff1f7;
+color:#e53c7e;
+font-weight:900;
+}
+
+.back{
+display:inline-block;
+margin-top:25px;
+padding:13px 20px;
+border-radius:999px;
+background:var(--pink);
+color:white;
+font-weight:900;
+box-shadow:0 12px 28px #ff5f9e44;
+}
+
+.footer{
+text-align:center;
+padding:25px;
+color:#9a7b8a;
+font-size:13px;
+}
+
+.float{
+position:fixed;
+pointer-events:none;
+animation:float 6s linear forwards;
+z-index:1;
+}
+
+@keyframes float{
+
+from{
+transform:translateY(20px) rotate(0);
+opacity:0;
+}
+
+15%{
+opacity:1;
+}
+
+to{
+transform:translateY(-110vh) rotate(30deg);
+opacity:0;
+}
+
+}
+
+@keyframes appear{
+
+from{
+opacity:0;
+transform:translateY(30px) scale(.95);
+}
+
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+}
+
+@media(max-width:500px){
+
+.navlinks a{
+font-size:11px;
+padding:7px 8px;
+}
+
+h1{
+letter-spacing:-3px;
+}
+
+.message-card{
+padding:25px 20px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="nav">
+
+<div class="navlinks">
+
+<a href="index.html">home</a>
+
+<a href="cerita.html">cerita</a>
+
+<a href="timeline.html">timeline</a>
+
+<a href="galeri.html">foto</a>
+
+<a href="reasons.html">reasons</a>
+
+<a href="surat.html">surat</a>
+
+<a href="surprise.html">🎁</a>
+
+</div>
+
+</nav>
+
+<main class="page">
+
+<div class="container">
+
+<div class="kicker">
+chapter 05 • secret surprise 🎁
+</div>
+
+<h1>
+a little<br>
+<span>surprise</span> 💗
+</h1>
+
+<p class="subtitle">
+
+jihan, sebelum kamu lanjut,
+ada sesuatu kecil yang sengaja aku sembunyikan di sini
+
+<br><br>
+
+<strong>coba klik hadiahnya...</strong>
+
+</p>
+
+<div
+class="gift-area"
+id="gift"
+onclick="openGift()">
+
+<div class="bow"></div>
+
+<div class="gift-lid"></div>
+
+<div class="gift-box"></div>
+
+<div class="ribbon"></div>
+
+</div>
+
+<div class="click-text" id="clickText">
+🎁 klik hadiahnya
+</div>
+
+<div
+class="message"
+id="message">
+
+<div class="message-card">
+
+<div class="heart">
+💗
+</div>
+
+<h2>
+surprise, jihan
+</h2>
+
+<p>
+
+haii jihan,
+
+<br><br>
+
+kalau kamu sampai membuka halaman ini,
+berarti kamu sudah sampai cukup jauh di website kecil yang aku buat khusus buat kamu
+
+<br><br>
+
+aku sebenarnya nggak tahu apakah semua yang aku tulis di sini
+bisa menggambarkan seberapa berharganya kamu buat aku
+
+<br><br>
+
+tapi aku mau kamu tahu satu hal...
+
+<br><br>
+
+aku nggak berharap hubungan kita selalu sempurna,
+karena aku tahu kita sama-sama manusia,
+bisa capek, bisa salah, bisa salah paham,
+dan kadang bisa sama-sama keras kepala
+
+<br><br>
+
+yang aku harapkan cuma satu,
+kalau suatu hari keadaan terasa berat,
+jangan langsung berpikir bahwa semuanya harus berakhir
+
+<br><br>
+
+ayo belajar bicara,
+belajar mendengarkan,
+belajar mengerti,
+dan kalau memang masih ada yang bisa diperbaiki,
+ayo kita perbaiki bersama
+
+<br><br>
+
+jarak mungkin membuat kita nggak bisa selalu berada
+di tempat yang sama,
+
+tapi selama kita masih mau saling menjaga,
+aku percaya jarak bukan alasan untuk berhenti berusaha
+
+</p>
+
+<div class="final">
+
+"aku nggak janji semuanya akan selalu mudah,
+tapi aku mau terus belajar menjadi seseorang
+yang bisa kamu percaya dan kamu nyamanin" 💗
+
+</div>
+
+<div class="signature">
+
+— dari iky, untuk jihan ♡
+
+</div>
+
+<a class="back" href="surat.html">
+lanjut ke surat 💌
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<div class="footer">
+a tiny surprise hidden inside our little story ♡
+</div>
+
+<script src="music.js"></script>
+
+<script>
+
+function openGift(){
+
+const gift=document.getElementById("gift");
+
+const message=document.getElementById("message");
+
+const clickText=document.getElementById("clickText");
+
+gift.classList.add("open");
+
+clickText.textContent="💗 tunggu sebentar...";
+
+setTimeout(()=>{
+
+message.classList.add("show");
+
+clickText.style.display="none";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
+},800);
+
+for(let i=0;i<20;i++){
+
+setTimeout(makeFloat,i*80);
+
+}
+
+}
+
+function makeFloat(){
+
+const h=document.createElement("div");
+
+h.className="float";
+
+h.textContent=[
+"💗",
+"💖",
+"💕",
+"🩷",
+"💘",
+"✨"
+][Math.floor(Math.random()*6)];
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.bottom="-30px";
+
+h.style.fontSize=(15+Math.random()*30)+"px";
+
+h.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),8000);
+
+}
+
+setInterval(makeFloat,900);
+
+</script>
+
+</body>
+</html>
