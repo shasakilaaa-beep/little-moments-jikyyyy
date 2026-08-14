@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>untuk jihan 💌</title>
+
+<style>
+:root{
+  --pink:#ef4f98;
+  --hot:#ff4d9a;
+  --light:#fff0f7;
+  --soft:#fff8fb;
+  --ink:#352530;
+  --muted:#806675;
+  --line:#ffd4e5;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% 0%,#fff 0 15%,transparent 35%),
+    radial-gradient(circle at 90% 10%,#ffe1ee 0 10%,transparent 30%),
+    linear-gradient(135deg,#fff5f9,#ffddea,#fff);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* NAV */
+
+.nav{
+  position:fixed;
+  z-index:50;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(96%,900px);
+  padding:9px;
+  background:#fffdfef2;
+  border:1px solid white;
+  border-radius:999px;
+  display:flex;
+  justify-content:center;
+  gap:4px;
+  box-shadow:0 15px 40px #b92d6c18;
+  backdrop-filter:blur(18px);
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
+}
+
+.nav::-webkit-scrollbar{
+  display:none;
+}
+
+.nav a{
+  padding:9px 13px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+  transition:.25s;
+}
+
+.nav a:hover{
+  background:#ffe2ee;
+  color:var(--pink);
+  transform:translateY(-2px);
+}
+
+.nav .active{
+  background:var(--hot);
+  color:white;
+}
+
+/* MUSIC */
+
+.music{
+  position:fixed;
+  z-index:60;
+  right:15px;
+  bottom:16px;
+  border:0;
+  border-radius:999px;
+  padding:13px 17px;
+  background:linear-gradient(135deg,#ff3d91,#ff79ae);
+  color:white;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 15px 35px #ff4d9a55;
+}
+
+/* MAIN */
+
+.wrap{
+  width:min(950px,90%);
+  margin:auto;
+  padding:115px 0 80px;
+}
+
+/* HERO */
+
+.hero{
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-inner{
+  width:100%;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:9px 16px;
+  border-radius:999px;
+  background:#fff;
+  color:var(--pink);
+  border:1px solid var(--line);
+  font-weight:900;
+  box-shadow:0 10px 25px #b92d6c12;
+}
+
+h1{
+  font-size:clamp(60px,14vw,125px);
+  line-height:.82;
+  letter-spacing:-7px;
+  margin:25px 0;
+}
+
+h1 span{
+  color:var(--pink);
+}
+
+.subtitle{
+  max-width:680px;
+  margin:auto;
+  color:var(--muted);
+  font-size:clamp(17px,3vw,23px);
+  line-height:1.7;
+}
+
+/* HEART */
+
+.big-heart{
+  width:100px;
+  height:100px;
+  margin:35px auto 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:70px;
+  animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+  0%,100%{
+    transform:scale(1);
+  }
+  15%{
+    transform:scale(1.12);
+  }
+  30%{
+    transform:scale(1);
+  }
+  45%{
+    transform:scale(1.08);
+  }
+}
+
+/* SECTION */
+
+section.card-section{
+  margin:45px 0;
+}
+
+.card{
+  background:#ffffffd9;
+  border:1px solid white;
+  border-radius:30px;
+  padding:30px;
+  margin:20px 0;
+  box-shadow:0 18px 45px #b92d6c12;
+  backdrop-filter:blur(12px);
+}
+
+.card h2{
+  margin-top:0;
+  color:var(--pink);
+  font-size:27px;
+}
+
+.card p{
+  color:var(--muted);
+  line-height:1.9;
+  font-size:16px;
+}
+
+.highlight{
+  color:var(--pink);
+  font-weight:900;
+}
+
+/* PROMISE */
+
+.promise-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.promise{
+  padding:22px;
+  background:var(--soft);
+  border:1px solid var(--line);
+  border-radius:23px;
+  transition:.25s;
+}
+
+.promise:hover{
+  transform:translateY(-5px) rotate(-1deg);
+  box-shadow:0 15px 30px #b92d6c18;
+}
+
+.promise .emoji{
+  font-size:32px;
+}
+
+.promise strong{
+  display:block;
+  margin:10px 0 7px;
+}
+
+.promise small{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* MESSAGE BUTTONS */
+
+.message-box{
+  text-align:center;
+}
+
+.message-display{
+  min-height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  margin:20px 0;
+  border-radius:25px;
+  background:#fff;
+  border:1px solid var(--line);
+  color:var(--muted);
+  line-height:1.8;
+  font-weight:650;
+  transition:.3s;
+}
+
+.message-btn{
+  border:0;
+  padding:14px 20px;
+  border-radius:999px;
+  background:var(--hot);
+  color:white;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 10px 25px #ff4d9a44;
+}
+
+.message-btn:hover{
+  transform:scale(1.04);
+}
+
+/* LETTER */
+
+.envelope{
+  text-align:center;
+}
+
+.envelope-box{
+  margin:20px auto;
+  max-width:450px;
+  min-height:230px;
+  padding:35px 25px;
+  background:linear-gradient(135deg,#fff,#fff0f7);
+  border:2px solid var(--line);
+  border-radius:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 20px 50px #b92d6c18;
+}
+
+.envelope-icon{
+  font-size:70px;
+  transition:.5s;
+}
+
+.letter{
+  display:none;
+  text-align:left;
+  line-height:1.9;
+  color:var(--muted);
+}
+
+.letter.show{
+  display:block;
+  animation:appear .6s ease;
+}
+
+@keyframes appear{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* FINAL */
+
+.final{
+  text-align:center;
+  padding:50px 20px;
+}
+
+.final h2{
+  font-size:clamp(35px,8vw,65px);
+  margin:0;
+}
+
+.final span{
+  color:var(--pink);
+}
+
+.final p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.back{
+  display:inline-flex;
+  margin-top:20px;
+  padding:14px 20px;
+  border-radius:999px;
+  background:var(--hot);
+  color:white;
+  font-weight:900;
+}
+
+/* FLOATING HEARTS */
+
+.heart{
+  position:fixed;
+  bottom:-40px;
+  pointer-events:none;
+  z-index:2;
+  animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+  to{
+    transform:translateY(-115vh) rotate(25deg);
+    opacity:0;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+  .nav{
+    justify-content:flex-start;
+  }
+
+  .nav a{
+    font-size:12px;
+    padding:8px 10px;
+  }
+
+  h1{
+    letter-spacing:-5px;
+  }
+
+  .promise-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:23px;
+    border-radius:24px;
+  }
+
+  .music{
+    right:10px;
+    bottom:10px;
+    font-size:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="nav">
+
+<a href="index.html">home</a>
+
+<a href="cerita.html">cerita</a>
+
+<a href="galeri.html">foto</a>
+
+<a href="timeline.html">timeline</a>
+
+<a href="reasons.html">alasan</a>
+
+<a href="game.html">🎮 game</a>
+
+<a href="surprise.html">surprise</a>
+
+<a href="surat.html">surat</a>
+
+<a href="jihan.html" class="active">💌 jihan</a>
+
+</nav>
+
+
+<!-- MUSIC -->
+
+<audio
+id="loveMusic"
+loop
+preload="auto"
+src="I_Lay_My_Love_On_You.mp3">
+</audio>
+
+<button class="music" id="musicBtn">
+🎵 putar lagu
+</button>
+
+
+<main class="wrap">
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div class="badge">
+💌 private page • just for jihan
+</div>
+
+<div class="big-heart">
+💗
+</div>
+
+<h1>
+untuk<br>
+<span>jihan</span>
+</h1>
+
+<p class="subtitle">
+
+halaman ini bukan dibuat supaya kamu
+harus percaya sama aku sekarang juga
+
+<br><br>
+
+aku cuma ingin kamu punya satu tempat
+untuk melihat apa yang sebenarnya ingin
+aku sampaikan dari hati
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- PESAN UTAMA -->
+
+<section class="card-section">
+
+<div class="card">
+
+<h2>
+🤍 kalau kamu sedang ragu
+</h2>
+
+<p>
+
+jihan, kalau suatu hari kamu merasa ragu sama aku,
+aku nggak akan menyalahkan kamu
+
+<br><br>
+
+aku tahu kata-kata itu gampang banget diucapkan,
+dan mungkin kamu juga pernah mendengar banyak
+kata-kata manis sebelumnya
+
+<br><br>
+
+jadi aku nggak mau meminta kamu untuk percaya
+hanya karena aku bilang <span class="highlight">"percaya sama aku"</span>
+
+<br><br>
+
+aku lebih ingin kamu melihatnya dari waktu ke waktu,
+dari bagaimana aku memperlakukan kamu,
+bagaimana aku menghadapi masalah,
+dan bagaimana aku tetap berusaha ketika keadaan
+nggak selalu sesuai dengan yang kita inginkan
+
+<br><br>
+
+kalau kepercayaan itu butuh waktu,
+aku nggak masalah menunggu prosesnya
+
+</p>
+
+</div>
+
+
+<!-- JANJI -->
+
+<div class="card">
+
+<h2>
+🫶 yang ingin aku usahakan
+</h2>
+
+<div class="promise-grid">
+
+<div class="promise">
+
+<div class="emoji">🤍</div>
+
+<strong>mendengarkan</strong>
+
+<small>
+aku ingin belajar mendengarkan kamu,
+bukan cuma menunggu giliran untuk menjawab
+</small>
+
+</div>
+
+
+<div class="promise">
+
+<div class="emoji">🌷</div>
+
+<strong>menghargai</strong>
+
+<small>
+perasaan kamu tetap penting meskipun
+kadang aku nggak langsung memahaminya
+</small>
+
+</div>
+
+
+<div class="promise">
+
+<div class="emoji">🫂</div>
+
+<strong>nggak gampang menyerah</strong>
+
+<small>
+kalau ada masalah, aku ingin belajar
+menyelesaikannya, bukan langsung pergi
+</small>
+
+</div>
+
+
+<div class="promise">
+
+<div class="emoji">🌱</div>
+
+<strong>terus bertumbuh</strong>
+
+<small>
+aku sadar aku masih punya banyak kekurangan
+dan masih harus banyak belajar
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PESAN RANDOM -->
+
+<div class="card message-box">
+
+<h2>
+🌷 kalau kamu lagi sedih
+</h2>
+
+<p>
+tekan tombolnya pelan-pelan,
+siapa tahu ada satu pesan yang kebetulan
+kamu butuhkan hari ini
+</p>
+
+<div
+class="message-display"
+id="messageDisplay">
+
+💗 tekan tombol di bawah
+</div>
+
+<button
+class="message-btn"
+onclick="randomMessage()">
+
+💌 kasih aku satu pesan
+
+</button>
+
+</div>
+
+
+<!-- SURAT -->
+
+<div class="card envelope">
+
+<h2>
+💌 ada satu surat untuk kamu
+</h2>
+
+<p>
+surat ini nggak akan muncul
+sebelum kamu membuka amplopnya
+</p>
+
+<div class="envelope-box">
+
+<div
+class="envelope-icon"
+id="envelopeIcon">
+
+💌
+
+</div>
+
+<button
+class="message-btn"
+onclick="openLetter()">
+
+buka suratnya
+
+</button>
+
+<div
+class="letter"
+id="letter">
+
+<p>
+
+<strong>jihan,</strong>
+
+<br><br>
+
+aku nggak tahu halaman ini akan terasa
+berlebihan atau nggak buat kamu
+
+tapi aku membuatnya karena ada beberapa
+hal yang kadang lebih mudah aku tulis
+daripada aku ucapkan langsung
+
+<br><br>
+
+aku nggak ingin menjadi seseorang yang hanya
+datang ketika semuanya menyenangkan
+
+aku ingin belajar menjadi seseorang yang
+tetap bisa diajak bicara ketika keadaan
+sedang nggak baik-baik saja
+
+<br><br>
+
+aku juga nggak mau bilang kalau aku
+akan selalu benar
+
+karena kenyataannya aku pasti pernah salah,
+pasti pernah bikin kamu kecewa,
+dan mungkin masih akan melakukan kesalahan
+lainnya
+
+<br><br>
+
+yang bisa aku lakukan adalah belajar
+mengakui kesalahan itu dan memperbaikinya
+
+<br><br>
+
+kalau selama ini ada hal dari aku
+yang membuat kamu ragu,
+
+aku nggak meminta kamu menghilangkan
+rasa ragu itu dalam satu malam
+
+<br><br>
+
+lihat saja aku dari waktu ke waktu
+
+biarkan sikap dan usaha yang menjawabnya
+
+<br><br>
+
+dan kalau suatu hari kamu merasa capek,
+ingat satu hal
+
+<br><br>
+
+<span class="highlight">
+kamu nggak harus menghadapi semuanya sendirian
+</span>
+
+<br><br>
+
+terima kasih karena sudah menjadi bagian
+dari cerita kecil yang akhirnya berarti
+sebesar ini buat aku
+
+<br><br>
+
+<strong>
+— iky 🤍
+</strong>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FINAL -->
+
+<div class="card final">
+
+<h2>
+kalau masih ragu,<br>
+<span>nggak apa-apa 🤍</span>
+</h2>
+
+<p>
+
+aku nggak ingin memaksa kamu untuk percaya
+
+aku cuma ingin diberi kesempatan
+untuk membuktikannya pelan-pelan
+
+<br><br>
+
+karena menurutku,
+kepercayaan yang paling indah
+bukan yang diminta
+
+<br>
+
+tapi yang tumbuh karena seseorang
+terus menunjukkan bahwa dia layak dipercaya
+
+<br><br>
+
+💗
+
+</p>
+
+<a href="index.html" class="back">
+♡ kembali ke little moments
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<script>
+
+/* =========================
+   MUSIC
+========================= */
+
+const audio =
+document.getElementById("loveMusic");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+let playing=false;
+
+musicBtn.addEventListener("click",async()=>{
+
+try{
+
+if(!playing){
+
+await audio.play();
+
+playing=true;
+
+musicBtn.textContent=
+"⏸️ matikan lagu";
+
+}else{
+
+audio.pause();
+
+playing=false;
+
+musicBtn.textContent=
+"🎵 putar lagu";
+
+}
+
+}catch(error){
+
+alert(
+'pastikan file "I_Lay_My_Love_On_You.mp3" ada di repository utama'
+);
+
+}
+
+});
+
+
+/* =========================
+   RANDOM MESSAGE
+========================= */
+
+const messages=[
+
+"kalau hari ini berat, kamu nggak harus pura-pura kuat terus ya 🤍",
+
+"istirahat sebentar nggak berarti kamu menyerah 🌷",
+
+"aku harap hari ini ada satu hal kecil yang bisa bikin kamu tersenyum 💗",
+
+"jangan terlalu keras sama diri kamu sendiri, kamu sudah berusaha sejauh ini 🫂",
+
+"kalau kamu sedang merasa sendirian, ingat kalau ada seseorang yang selalu mendoakan kamu dari jauh 🤍",
+
+"kamu nggak harus sempurna untuk menjadi seseorang yang berharga 💕",
+
+"semoga semua hal yang sedang kamu perjuangkan pelan-pelan menemukan jalannya ✨",
+
+"kalau kamu sedang ragu, ambil waktu kamu, aku nggak akan memaksa 🌷",
+
+"terima kasih sudah bertahan sampai hari ini 🩷",
+
+"aku harap kamu selalu menemukan alasan kecil untuk tersenyum setiap hari 💗",
+
+"nggak semua masalah harus selesai hari ini, pelan-pelan aja 🤍",
+
+"apa pun yang terjadi, jangan lupa menjaga diri kamu sendiri 🫶"
+
+];
+
+function randomMessage(){
+
+const display=
+document.getElementById("messageDisplay");
+
+const random=
+messages[
+Math.floor(
+Math.random()*messages.length
+)
+];
+
+display.style.opacity="0";
+
+setTimeout(()=>{
+
+display.textContent=random;
+
+display.style.opacity="1";
+
+},200);
+
+}
+
+
+/* =========================
+   OPEN LETTER
+========================= */
+
+function openLetter(){
+
+const letter=
+document.getElementById("letter");
+
+const icon=
+document.getElementById("envelopeIcon");
+
+letter.classList.toggle("show");
+
+if(letter.classList.contains("show")){
+
+icon.textContent="💗";
+
+}else{
+
+icon.textContent="💌";
+
+}
+
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+setInterval(()=>{
+
+const heart=
+document.createElement("div");
+
+heart.className="heart";
+
+heart.textContent=[
+"💗",
+"🩷",
+"💕",
+"💖",
+"✨",
+"🌷"
+][
+Math.floor(Math.random()*6)
+];
+
+heart.style.left=
+Math.random()*100+"vw";
+
+heart.style.fontSize=
+14+Math.random()*25+"px";
+
+heart.style.animationDuration=
+5+Math.random()*5+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(
+()=>heart.remove(),
+10000
+);
+
+},700);
+
+</script>
+
+</body>
+</html>
